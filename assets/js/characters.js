@@ -2,9 +2,10 @@
 // Luke skywalker Attacks
 function LukeSkywalker() {
   this.name = 'Luke Skywalker';
-  this.party = [1];
+  this.party = [1, 1];
   this.healthPower = 120;
   this.attackPower = [5, 20];
+  this.allegiance = 'hero',
   this.isStunned = false;
 
   this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'];
@@ -29,6 +30,11 @@ function LukeSkywalker() {
       }
     }
   }
+
+  this.attackFunctions = [
+    forcePush(), jediBash(), meditate()
+  ];
+
 };
 
 // Stormtrooper Attacks
@@ -37,6 +43,7 @@ function Stormtrooper(stormtrooper) {
   this.party = [2, 4];
   this.healthPower = 60;
   this.attackPower = [2, 10];
+  this.allegiance = 'villain',
   this.isStunned = false;
 
   this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'];
@@ -47,4 +54,8 @@ function Stormtrooper(stormtrooper) {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
     return hitPoints;
   }
+
+  this.attackFunctions = [
+    blaster()
+  ];
 };

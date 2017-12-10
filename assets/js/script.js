@@ -6,10 +6,10 @@ function randomGenerator(minValue, maxValue) {
   return randomNumber;
 }
 
-// Generate character
+// Generate character card
 function generateCharacter(characterObject) {
   var characterHolder = $('<div>');
-  characterHolder.addClass('dropdown');
+  characterHolder.addClass('dropdown m-2');
 
   var newButton = $('<button>');
   newButton.addClass('btn btn-secondary dropdown-toggle');
@@ -19,22 +19,30 @@ function generateCharacter(characterObject) {
   newButton.attr('aria-haspopup', 'true');
   newButton.attr('aria-expanded', 'false');
 
-  // GENERALIZE THIS
-  var newImg = $('<img src="assets/images/luke-skywalker.jpg" alt="[skywalker]" width="160px" height="220px">');
+  imgSrc = '<img src="' + characterObject.profile[0] + '" alt="' +
+    characterObject.name + '" ' + "width=" + characterObject.profile[1] + " height=" + characterObject.profile[2] + '>';
+  var newImg = $(imgSrc);
 
   var newDropMenu = $('<div>');
   newDropMenu.addClass('dropdown-menu');
   newDropMenu.attr('aria-labelledby', 'dropdownMenuButton');
 
-  var newAttackItem = $('<a>');
-  newAttackItem.addClass('dropdown-item');
-  newAttackItem.append('jedi bash'); // GENERALIZE THIS
+  for (var i = 0; i < characterObject.attacks.length; i++) {
+    var newAttackItem = $('<a>');
+    newAttackItem.addClass('dropdown-item');
+    newAttackItem.attr("data-attack", i);
+    newAttackItem.append(characterObject.attacks[i]);
+    newDropMenu.append(newAttackItem);
+  }
 
-  newDropMenu.append(newAttackItem);
   newButton.append(newImg);
 
   characterHolder.append(newDropMenu);
   characterHolder.append(newButton);
 
-  $('#hero-space').append(characterHolder);
+  if (characterObject.allegiance === 'hero') {
+    $('#hero-space').append(characterHolder);
+  } else {
+    $('#villain-space').append(characterHolder);
+  }
 }

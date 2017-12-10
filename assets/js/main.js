@@ -1,17 +1,21 @@
-var heros = [LukeSkywalker()];
-var villains = [Stormtrooper()];
+LukeSkywalker();
+Stormtrooper();
 
-var player = new LukeSkywalker();
+var playerOpt1 = new LukeSkywalker();
 var enemy = new Stormtrooper();
-console.log(heros);
-console.log(villains);
-
-attack = randomGenerator(0,100);
-console.log(attack);
-
-generateCharacter(player);
 
 $(document).ready(function() {
 
+  // Generate hero selected on click
+  heroPartyMembers = randomGenerator(playerOpt1.party[0], playerOpt1.party[1]);
+  villainPartyMembers = randomGenerator(enemy.party[0], enemy.party[1])
+
+  for (var i = 0; i < heroPartyMembers; i++) {
+    generateCharacter(playerOpt1);
+  }
+
+  for (var j = 0; j < villainPartyMembers; j++) {
+    generateCharacter(enemy);
+  }
 
 });
