@@ -6,20 +6,46 @@ function randomGenerator(minValue, maxValue) {
   return randomNumber;
 }
 
+// Select character
+function generateHeroSelect(characterObject) {
+  var heroSelect = $('<button>');
+
+  heroSelect.addClass('game-hero m-3');
+  heroSelect.attr('data-character', characterObject.characterNumber);
+
+  var imgSrc = '<img src="' + characterObject.profile[0] + '" alt="' +
+    characterObject.name + '" ' + "width=" + characterObject.profile[1] + " height=" + characterObject.profile[2] + '>';
+  var newImg = $(imgSrc);
+
+  heroSelect.append(newImg);
+
+  $('#choose-hero').append(heroSelect);
+}
+
 // Generate character card
-function generateCharacter(characterObject) {
+function generateGameCharacters(characterObject) {
+
   var characterHolder = $('<div>');
   characterHolder.addClass('dropdown m-2');
+  characterHolder.attr('data-name', characterObject.name);
+  if (characterObject.allegiance === 'hero') {
+    characterHolder.addClass('jedi');
+  }
 
   var newButton = $('<button>');
-  newButton.addClass('btn btn-secondary dropdown-toggle');
+  newButton.addClass('btn dropdown-toggle');
+  if (characterObject.allegiance === 'hero') {
+    newButton.addClass('btn-secondary');
+  } else {
+    newButton.addClass('btn-dark');
+  }
   newButton.attr('type', 'button');
   newButton.attr('id', 'dropdownMenuButton');
   newButton.attr('data-toggle', 'dropdown');
   newButton.attr('aria-haspopup', 'true');
   newButton.attr('aria-expanded', 'false');
 
-  imgSrc = '<img src="' + characterObject.profile[0] + '" alt="' +
+  var imgSrc = '<img src="' + characterObject.profile[0] + '" alt="' +
     characterObject.name + '" ' + "width=" + characterObject.profile[1] + " height=" + characterObject.profile[2] + '>';
   var newImg = $(imgSrc);
 
@@ -36,9 +62,9 @@ function generateCharacter(characterObject) {
   }
 
   newButton.append(newImg);
+  characterHolder.append(newButton);
 
   characterHolder.append(newDropMenu);
-  characterHolder.append(newButton);
 
   if (characterObject.allegiance === 'hero') {
     $('#hero-space').append(characterHolder);

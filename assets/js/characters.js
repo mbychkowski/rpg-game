@@ -6,11 +6,50 @@ function LukeSkywalker() {
   this.healthPower = 120;
   this.attackPower = [5, 20];
   this.allegiance = 'hero',
-  this.isStunned = false;
+  this.characterNumber = 0,
+  this.isStunned = false,
 
-  this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'];
+  this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'],
 
-  this.attacks = ['jedi bash', 'force push', 'meditate'];
+  this.attacks = ['jedi bash', 'force push', 'meditate'],
+
+  this.forcePush = function() {
+    var targetIsStunned = true;
+
+  }
+  this.jediBash = function() {
+    var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
+    return hitPoints;
+  }
+  this.meditate = function() {
+    for (var i = 0; i < 20; i++) {
+      if (this.healthPower > 119) {
+        break;
+
+      } else {
+        this.healthPower++;
+      }
+    }
+  }
+
+  this.attackFunctions = [
+    forcePush(), jediBash(), meditate()
+  ];
+
+};
+
+function ObiWanKenobi() {
+  this.name = 'Obi-Wan-Kenobi';
+  this.party = [1, 1];
+  this.healthPower = 160;
+  this.attackPower = [10, 15];
+  this.allegiance = 'hero',
+  this.characterNumber = 1,
+  this.isStunned = false,
+
+  this.profile = ['assets/images/obi-wan-kenobi.jpg', '160px', '220px'],
+
+  this.attacks = ['jedi bash', 'force push', 'meditate'],
 
   this.forcePush = function() {
     var targetIsStunned = true;
@@ -44,11 +83,11 @@ function Stormtrooper(stormtrooper) {
   this.healthPower = 60;
   this.attackPower = [2, 10];
   this.allegiance = 'villain',
-  this.isStunned = false;
+  this.isStunned = false,
 
-  this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'];
+  this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'],
 
-  this.attacks = ['blaster'];
+  this.attacks = ['blaster'],
 
   this.blaster = function() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
