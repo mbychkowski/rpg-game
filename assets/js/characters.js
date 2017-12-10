@@ -6,6 +6,9 @@ function LukeSkywalker() {
   this.healthPower = 120;
   this.attackPower = [5, 20];
   this.isStunned = false;
+
+  this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'];
+
   this.attacks = ['jedi bash', 'force push', 'meditate'];
 
   this.forcePush = function() {
@@ -35,6 +38,9 @@ function Stormtrooper(stormtrooper) {
   this.healthPower = 60;
   this.attackPower = [2, 10];
   this.isStunned = false;
+
+  this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'];
+
   this.attacks = ['blaster'];
 
   this.blaster = function() {
