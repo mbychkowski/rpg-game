@@ -87,10 +87,6 @@ function generateGameCharacters(characterObject) {
   if (characterObject.allegiance === 'hero') {
     $('#hero-space').append(characterHolder);
   } else {
-    $('#villain-space').append(characterHolder);
+    $('#enemy-space').append(characterHolder);
   }
-}
-
-function addAttacks() {
-
 }

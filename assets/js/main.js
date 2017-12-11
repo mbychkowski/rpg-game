@@ -21,25 +21,37 @@ $(document).ready(function() {
     var gameHeroObject = playerArr[gameHeroID];
     generateGameCharacters(gameHeroObject);
 
-    var villainPartyMembers = randomGenerator(enemy.party[0], enemy.party[1])
-    for (var i = 0; i < villainPartyMembers; i++) {
-      var villainObjects = [];
-      villainObjects.push(enemy);
+    var enemnyPartyMembers = randomGenerator(enemy.party[0], enemy.party[1])
+    for (var i = 0; i < enemnyPartyMembers; i++) {
+      var enemyObjects = [];
+      enemyObjects.push(enemy);
       generateGameCharacters(enemy);
     }
 
     // CLICK EVENTS TO DEAL DAMAGE
     $('.jedi-attack').on('click', function() {
-      console.log('Something was clicked')
-      var hitPoints = gameHeroObject.heroAttack();
-      console.log('hit points: ', hitPoints);
+      var heroHitPoints = gameHeroObject.heroAttack();
 
-      var targetEnemy = document.querySelector('.enemy')
-      targetEnemy.dataset.health -= hitPoints;
-      console.log(targetEnemy.dataset.health);
+      var targetEnemy = document.querySelector('.enemy');
+      var userHero = document.querySelector('.jedi');
+
+      targetEnemy.dataset.health -= heroHitPoints;
+      alert(userHero.dataset.name + ' hit ' + targetEnemy.dataset.name + ' for ' + heroHitPoints + ' hit points!');
 
       if (targetEnemy.dataset.health < 0) {
         $(targetEnemy).remove()
+        enemnyPartyMembers--;
+      }
+
+      for (var i = 0; i < enemnyPartyMembers; i++) {
+        var enemyHitPoints = enemy.enemyAttack();
+        userHero.dataset.health -= enemyHitPoints;
+        alert(targetEnemy.dataset.name + ' hit ' + userHero.dataset.name + ' for ' + enemyHitPoints + ' hit points.');
+      }
+
+      if (userHero.dataset.health < 0) {
+        $(userHero).remove()
+        alert('You lose. Refresh to play again.')
       }
 
     });

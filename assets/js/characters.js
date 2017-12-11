@@ -4,7 +4,7 @@ function LukeSkywalker() {
   this.name = 'Luke Skywalker';
   this.party = [1, 1];
   this.healthPower = 120;
-  this.attackPower = [5, 20];
+  this.attackPower = [1, 50];
   this.allegiance = 'hero',
   this.characterNumber = 0,
   this.isStunned = false,
@@ -23,7 +23,7 @@ function ObiWanKenobi() {
   this.name = 'Obi-Wan-Kenobi';
   this.party = [1, 1];
   this.healthPower = 160;
-  this.attackPower = [10, 15];
+  this.attackPower = [20, 25];
   this.allegiance = 'hero',
   this.characterNumber = 1,
   this.isStunned = false,
