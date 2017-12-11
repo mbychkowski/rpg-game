@@ -11,31 +11,12 @@ function LukeSkywalker() {
 
   this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'],
 
-  this.attacks = ['jedi bash', 'force push', 'meditate'],
+  this.attacks = ['jedi bash'],
 
-  this.forcePush = function() {
-    var targetIsStunned = true;
-
-  }
-  this.jediBash = function() {
+  this.heroAttack = function() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
     return hitPoints;
   }
-  this.meditate = function() {
-    for (var i = 0; i < 20; i++) {
-      if (this.healthPower > 119) {
-        break;
-
-      } else {
-        this.healthPower++;
-      }
-    }
-  }
-
-  this.attackFunctions = [
-    forcePush(), jediBash(), meditate()
-  ];
-
 };
 
 function ObiWanKenobi() {
@@ -49,31 +30,12 @@ function ObiWanKenobi() {
 
   this.profile = ['assets/images/obi-wan-kenobi.jpg', '160px', '220px'],
 
-  this.attacks = ['jedi bash', 'force push', 'meditate'],
+  this.attacks = ['jedi bash']
 
-  this.forcePush = function() {
-    var targetIsStunned = true;
-
-  }
-  this.jediBash = function() {
+  this.heroAttack = function() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
     return hitPoints;
   }
-  this.meditate = function() {
-    for (var i = 0; i < 20; i++) {
-      if (this.healthPower > 119) {
-        break;
-
-      } else {
-        this.healthPower++;
-      }
-    }
-  }
-
-  this.attackFunctions = [
-    forcePush(), jediBash(), meditate()
-  ];
-
 };
 
 // Stormtrooper Attacks
@@ -89,12 +51,8 @@ function Stormtrooper(stormtrooper) {
 
   this.attacks = ['blaster'],
 
-  this.blaster = function() {
+  this.enemyAttack = function() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
     return hitPoints;
   }
-
-  this.attackFunctions = [
-    blaster()
-  ];
 };

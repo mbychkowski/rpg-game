@@ -1,3 +1,29 @@
+body {
+  font-family: 'Righteous', sans-serif;
+}
+
 .dropdown-toggle::after {
-    display:none
+  display: none
+}
+
+.jedi {
+  position: relative;
+}
+.jedi::after {
+  position: absolute;
+  bottom: -30px;
+  left: 0px;
+  content: attr(data-name) ' (' attr(data-health-power) ')';
+  color: black;
+}
+
+.empire {
+  position: relative;
+}
+.empire::after {
+  position: absolute;
+  bottom: -30px;
+  left: 0px;  content: attr(data-name) ' (' attr(data-health-power) ')';
+  color: black;
+
 }

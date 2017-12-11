@@ -27,18 +27,29 @@ function generateGameCharacters(characterObject) {
 
   var characterHolder = $('<div>');
   characterHolder.addClass('dropdown m-2');
+
   characterHolder.attr('data-name', characterObject.name);
+  characterHolder.attr('data-health-power', characterObject.healthPower);
+  characterHolder.attr('data-attack-power', characterObject.attackPower);
+  characterHolder.attr('data-stunned', characterObject.isStunned);
+  characterHolder.attr('data-side', characterObject.allegiance);
+  characterHolder.attr('data-character-id', characterObject.isStunned);
+
   if (characterObject.allegiance === 'hero') {
     characterHolder.addClass('jedi');
+  } else {
+    characterHolder.addClass('empire');
   }
 
   var newButton = $('<button>');
   newButton.addClass('btn dropdown-toggle');
+
   if (characterObject.allegiance === 'hero') {
     newButton.addClass('btn-secondary');
   } else {
     newButton.addClass('btn-dark');
   }
+
   newButton.attr('type', 'button');
   newButton.attr('id', 'dropdownMenuButton');
   newButton.attr('data-toggle', 'dropdown');
@@ -54,8 +65,9 @@ function generateGameCharacters(characterObject) {
   newDropMenu.attr('aria-labelledby', 'dropdownMenuButton');
 
   for (var i = 0; i < characterObject.attacks.length; i++) {
-    var newAttackItem = $('<a>');
+    var newAttackItem = $('<button>');
     newAttackItem.addClass('dropdown-item');
+    newAttackItem.addClass('attack');
     newAttackItem.attr("data-attack", i);
     newAttackItem.append(characterObject.attacks[i]);
     newDropMenu.append(newAttackItem);
@@ -71,4 +83,8 @@ function generateGameCharacters(characterObject) {
   } else {
     $('#villain-space').append(characterHolder);
   }
+}
+
+function addAttacks() {
+
 }
