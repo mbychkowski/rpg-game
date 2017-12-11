@@ -29,8 +29,8 @@ function generateGameCharacters(characterObject) {
   characterHolder.addClass('dropdown m-2');
 
   characterHolder.attr('data-name', characterObject.name);
-  characterHolder.attr('data-health-power', characterObject.healthPower);
-  characterHolder.attr('data-attack-power', characterObject.attackPower);
+  characterHolder.attr('data-health', characterObject.healthPower);
+  characterHolder.attr('data-power', characterObject.attackPower);
   characterHolder.attr('data-stunned', characterObject.isStunned);
   characterHolder.attr('data-side', characterObject.allegiance);
   characterHolder.attr('data-character-id', characterObject.isStunned);
@@ -38,7 +38,7 @@ function generateGameCharacters(characterObject) {
   if (characterObject.allegiance === 'hero') {
     characterHolder.addClass('jedi');
   } else {
-    characterHolder.addClass('empire');
+    characterHolder.addClass('enemy');
   }
 
   var newButton = $('<button>');
@@ -67,7 +67,13 @@ function generateGameCharacters(characterObject) {
   for (var i = 0; i < characterObject.attacks.length; i++) {
     var newAttackItem = $('<button>');
     newAttackItem.addClass('dropdown-item');
-    newAttackItem.addClass('attack');
+
+    if (characterObject.allegiance === 'hero') {
+      newAttackItem.addClass('jedi-attack');
+    } else {
+      newAttackItem.addClass('enemy-attack');
+    }
+
     newAttackItem.attr("data-attack", i);
     newAttackItem.append(characterObject.attacks[i]);
     newDropMenu.append(newAttackItem);

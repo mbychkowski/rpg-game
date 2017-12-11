@@ -29,12 +29,19 @@ $(document).ready(function() {
     }
 
     // CLICK EVENTS TO DEAL DAMAGE
-    $('.attack').on('click', function() {
+    $('.jedi-attack').on('click', function() {
       console.log('Something was clicked')
       var hitPoints = gameHeroObject.heroAttack();
       console.log('hit points: ', hitPoints);
+
+      var targetEnemy = document.querySelector('.enemy')
+      targetEnemy.dataset.health -= hitPoints;
+      console.log(targetEnemy.dataset.health);
+
+      if (targetEnemy.dataset.health < 0) {
+        $(targetEnemy).remove()
+      }
+
     });
   });
-
-
 });

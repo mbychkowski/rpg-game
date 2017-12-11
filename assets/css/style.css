@@ -13,17 +13,17 @@ body {
   position: absolute;
   bottom: -30px;
   left: 0px;
-  content: attr(data-name) ' (' attr(data-health-power) ')';
+  content: attr(data-name) ' (' attr(data-health) ')';
   color: black;
 }
 
-.empire {
+.enemy {
   position: relative;
 }
-.empire::after {
+.enemy::after {
   position: absolute;
-  bottom: -30px;
-  left: 0px;  content: attr(data-name) ' (' attr(data-health-power) ')';
+  top: 0px;
+  content: attr(data-name) ' (' attr(data-health) ')';
   color: black;
 
 }

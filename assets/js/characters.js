@@ -44,7 +44,7 @@ function Stormtrooper(stormtrooper) {
   this.party = [2, 4];
   this.healthPower = 60;
   this.attackPower = [2, 10];
-  this.allegiance = 'villain',
+  this.allegiance = 'enemy',
   this.isStunned = false,
 
   this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'],
