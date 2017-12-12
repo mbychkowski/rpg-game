@@ -2,6 +2,10 @@ body {
   font-family: 'Righteous', sans-serif;
 }
 
+.title-color {
+  color:#FFD700;
+}
+
 .dropdown-toggle::after {
   display: none
 }
@@ -14,7 +18,7 @@ body {
   bottom: -30px;
   left: 0px;
   content: attr(data-name) ' (' attr(data-health) ')';
-  color: black;
+  color: #FFD700;
 }
 
 .enemy {
@@ -24,6 +28,6 @@ body {
   position: absolute;
   top: 0px;
   content: attr(data-name) ' (' attr(data-health) ')';
-  color: black;
+  color: #FFD700;
 
 }

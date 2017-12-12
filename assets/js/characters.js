@@ -30,7 +30,7 @@ function ObiWanKenobi() {
 
   this.profile = ['assets/images/obi-wan-kenobi.jpg', '160px', '220px'],
 
-  this.attacks = ['jedi bash']
+  this.attacks = ['jedi mindtrick']
 
   this.heroAttack = function() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
