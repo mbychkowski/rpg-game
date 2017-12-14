@@ -6,12 +6,12 @@ function randomGenerator(minValue, maxValue) {
   return randomNumber;
 }
 
-// Select character
+// Select character cards for player to choose
 function generateHeroSelect(characterObject) {
   var heroSelect = $('<button>');
 
   heroSelect.addClass('game-hero m-3');
-  heroSelect.attr('data-character', characterObject.characterNumber);
+  heroSelect.attr('data-characterID', characterObject.characterNumber);
 
   var imgSrc = '<img src="' + characterObject.profile[0] + '" alt="' +
     characterObject.name + '" ' + "width=" + characterObject.profile[1] + " height=" + characterObject.profile[2] + '>';
@@ -22,7 +22,7 @@ function generateHeroSelect(characterObject) {
   $('#choose-hero').append(heroSelect);
 }
 
-// Generate character card
+// Generate character card in game play
 function generateGameCharacters(characterObject) {
 
   var characterHolder = $('<div>');
@@ -31,9 +31,7 @@ function generateGameCharacters(characterObject) {
   characterHolder.attr('data-name', characterObject.name);
   characterHolder.attr('data-health', characterObject.healthPower);
   characterHolder.attr('data-power', characterObject.attackPower);
-  characterHolder.attr('data-stunned', characterObject.isStunned);
-  characterHolder.attr('data-side', characterObject.allegiance);
-  characterHolder.attr('data-character-id', characterObject.isStunned);
+  characterHolder.attr('data-allegiance', characterObject.allegiance);
 
   if (characterObject.allegiance === 'hero') {
     characterHolder.addClass('jedi');

@@ -7,7 +7,6 @@ function LukeSkywalker() {
   this.attackPower = [1, 50];
   this.allegiance = 'hero',
   this.characterNumber = 0,
-  this.isStunned = false,
 
   this.profile = ['assets/images/luke-skywalker.jpg', '160px', '220px'],
 
@@ -17,6 +16,17 @@ function LukeSkywalker() {
     var hitPoints = randomGenerator(this.attackPower[0], this.attackPower[1]);
     return hitPoints;
   }
+
+  // this.heroHeal = function(currentHealth) {
+  //   for(var i = 0; i < 20; i++) {
+  //     currentHealth += 1;
+  //
+  //     if (currentHealth > this.healthPower) {
+  //       break;
+  //     }
+  //   }
+  //   return currentHealth;
+  // }
 };
 
 function ObiWanKenobi() {
@@ -26,7 +36,6 @@ function ObiWanKenobi() {
   this.attackPower = [20, 25];
   this.allegiance = 'hero',
   this.characterNumber = 1,
-  this.isStunned = false,
 
   this.profile = ['assets/images/obi-wan-kenobi.jpg', '160px', '220px'],
 
@@ -39,13 +48,12 @@ function ObiWanKenobi() {
 };
 
 // Stormtrooper Attacks
-function Stormtrooper(stormtrooper) {
+function Stormtrooper(i) {
   this.name = 'Stormtrooper';
   this.party = [2, 4];
-  this.healthPower = 60;
+  this.healthPower = 70;
   this.attackPower = [2, 10];
   this.allegiance = 'enemy',
-  this.isStunned = false,
 
   this.profile = ['assets/images/stormtrooper.jpg', '160px', '119px'],
 
